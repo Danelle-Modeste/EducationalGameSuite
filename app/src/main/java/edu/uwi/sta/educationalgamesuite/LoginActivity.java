@@ -14,8 +14,6 @@ import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
-import java.util.Map;
-
 public class LoginActivity extends AppCompatActivity {
     EditText em,pword;
     String email,password,resp;
@@ -92,32 +90,9 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void register(final View view) {
-        email = em.getText().toString();
-        password = pword.getText().toString();
-
-        if (email.trim().equals("") || password.trim().equals("")) {
-            resp="PLEASE ENTER A VALID EMAIL ADDRESS AND PASSWORD";
-            Toast.makeText(LoginActivity.this,resp,Toast.LENGTH_LONG).show();
-        }
-        else {
-            firebaseRef.createUser(email, password, new Firebase.ValueResultHandler<Map<String, Object>>() {
-                @Override
-                public void onSuccess(Map<String, Object> result) {
-                    System.out.println("Successfully created user account with uid: " + result.get("uid"));
-                    resp = "Successfully created user account...Logging in";
-                    Toast.makeText(LoginActivity.this, resp, Toast.LENGTH_LONG).show();
-                    login(view);
-                }
-
-                @Override
-                public void onError(FirebaseError firebaseError) {
-                    System.out.println(email + " " + password + " there was an error" + firebaseError);
-                    resp = "Create User Account Error: " + firebaseError.toString().substring(14);
-                    Toast.makeText(LoginActivity.this, resp, Toast.LENGTH_LONG).show();
-                }
-            });
-        }
+    public void register(View view){
+        Intent i= new Intent(LoginActivity.this,RegisterActivity.class);
+        startActivity(i);
     }
 
     public void passwordReset(final View view){

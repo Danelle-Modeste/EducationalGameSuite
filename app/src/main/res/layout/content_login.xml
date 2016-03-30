@@ -44,19 +44,6 @@
         android:layout_alignParentStart="true" />
 
 <!-- To change button colour edit color in btn_design2 or delete and create new regular button or new button style -->
-    <Button
-        android:id="@+id/btn_register"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/btn_design2"
-        android:gravity="center"
-        android:onClick="register"
-        android:text="@string/register"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        android:layout_below="@+id/btn_login"
-        android:layout_marginTop="28dp"/>
 
     <Button
         android:id="@+id/btn_login"
@@ -83,7 +70,21 @@
         android:textSize="20sp"
         android:textStyle="normal"
         android:layout_marginTop="34dp"
-        android:layout_below="@+id/btn_register"/>
+        android:layout_below="@+id/btn_login"/>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/btn_design2"
+        android:gravity="center"
+        android:onClick="register"
+        android:text="@string/register"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        android:layout_below="@+id/btn_reset"
+        android:layout_marginTop="28dp"/>
 
 
 </RelativeLayout>

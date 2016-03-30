@@ -12,4 +12,12 @@
     tools:context="edu.uwi.sta.educationalgamesuite.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="WELCOME"
+        android:id="@+id/txt_welc"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
