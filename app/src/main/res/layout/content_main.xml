@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="edu.uwi.sta.educationalgamesuite.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    android:id="@+id/i">
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,6 +19,34 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="WELCOME"
         android:id="@+id/txt_welc"
+        android:layout_below="@+id/imgBtnProfile"
+        android:layout_alignEnd="@+id/imgBtnProfile"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Dashboard"
+        android:id="@+id/tvDashboard"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imgBtnProfile"
+        android:src="@drawable/profile_pic"
+        android:scaleType="fitXY"
+        android:background="@android:color/transparent"
+        android:layout_below="@+id/tvDashboard"
+        android:layout_alignParentEnd="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvGameList"
+        android:layout_below="@+id/txt_welc"
+        android:layout_alignEnd="@+id/imgBtnProfile"
+        android:headerDividersEnabled="false" />
+
 </RelativeLayout>
