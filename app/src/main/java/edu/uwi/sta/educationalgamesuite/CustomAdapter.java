@@ -1,6 +1,8 @@
 package edu.uwi.sta.educationalgamesuite;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -44,7 +46,7 @@ public class CustomAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, final View convertView, ViewGroup parent) {
         SingleRow sr = new SingleRow();
         View rowView = inflater.inflate(R.layout.game_item,null);
         sr.tv=(TextView) rowView.findViewById(R.id.txtViewTxt);
@@ -57,8 +59,16 @@ public class CustomAdapter extends BaseAdapter{
             public void onClick(View v) {
                 switch (position){
                     case 0:
-                        Log.d("ITEM CLICKED","Play sudoku");
-                        context.startActivity(new Intent(context,PlaySudokuActivity.class));
+                        Log.d("ITEM CLICKED", "Play sudoku");
+                        new AlertDialog.Builder(context)
+                                .setTitle("Select Difficulty")
+                                .setItems(new String[]{"Easy", "Medium", "Hard"}, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        context.startActivity(new Intent(context,PlaySudokuActivity.class).putExtra("difficulty",which));
+                                    }
+                                }).show();
+
                         break;
                     default:
                         Toast.makeText(context,"You have not coded this ish yet son",Toast.LENGTH_LONG).show();
