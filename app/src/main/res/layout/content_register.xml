@@ -18,10 +18,9 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/txt_name"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="37dp"
-        android:hint="Name" />
+        android:hint="Name"
+        android:layout_above="@+id/txt_age"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -29,9 +28,9 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/txt_email"
-        android:layout_below="@+id/txt_age"
-        android:layout_alignStart="@+id/txt_age"
-        android:hint="Email" />
+        android:hint="Email"
+        android:layout_above="@+id/txt_pass"
+        android:layout_alignStart="@+id/txt_pass" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -39,9 +38,9 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/txt_pass"
-        android:layout_below="@+id/txt_email"
-        android:layout_alignStart="@+id/txt_email"
-        android:hint="Password" />
+        android:hint="Password"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -49,18 +48,18 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/txt_age"
-        android:layout_below="@+id/txt_name"
-        android:layout_centerHorizontal="true"
-        android:hint="Age" />
+        android:hint="Age"
+        android:layout_above="@+id/txt_email"
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Submit"
         android:id="@+id/btn_submit"
-        android:layout_below="@+id/txt_pass"
         android:background="@drawable/btn_design2"
+        android:onClick="signUp"
+        android:layout_below="@+id/txt_pass"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="109dp"
-        android:onClick="signUp" />
+        android:layout_marginTop="50dp"/>
 </RelativeLayout>
