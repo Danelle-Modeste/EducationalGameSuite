@@ -111,19 +111,14 @@ public class PlaySudokuActivity extends AppCompatActivity {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 final ImageView imageView;
-                EditText editText;
                 if (convertView == null) {
                     imageView = new ImageView(getApplicationContext());
                     imageView.setLayoutParams(new GridView.LayoutParams(55, 55));
                     imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     imageView.setPadding(8, 8, 8, 8);
 
-                    editText = new EditText(getApplicationContext());
-                    editText.bringToFront();
                 } else {
                     imageView = (ImageView) convertView;
-                    editText = new EditText(getApplicationContext());
-                    editText.bringToFront();
                 }
 
                 imageView.setImageResource(drawables[gameBoard[position] - 1]);
@@ -153,7 +148,7 @@ public class PlaySudokuActivity extends AppCompatActivity {
             default:
                 dif="Hard";
         }
-        ((TextView)findViewById(R.id.idSudokuHeader)).setText("Sudoku-   "+dif);
+        ((TextView)findViewById(R.id.idSudokuHeader)).setText("Sudoku -   "+dif);
     }
 
     private void setDrawables() {

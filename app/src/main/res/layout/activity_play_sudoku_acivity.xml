@@ -29,14 +29,12 @@
         android:layout_below="@+id/idSudokuHeader"
         android:layout_alignParentStart="true" />
 
-
     <GridView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:numColumns="9"
+        android:orientation="horizontal"
+        android:numColumns="3"
         android:id="@+id/gridViewPanel"
         android:layout_below="@+id/sudokuGrid">
     </GridView>
 </RelativeLayout>
-
