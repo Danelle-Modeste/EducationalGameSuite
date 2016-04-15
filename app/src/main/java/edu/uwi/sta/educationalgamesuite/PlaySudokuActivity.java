@@ -21,6 +21,7 @@ public class PlaySudokuActivity extends AppCompatActivity {
     private int[] drawables;
     private int difficulty;
     private int[] gameBoard;
+    public static int val;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,15 +117,17 @@ public class PlaySudokuActivity extends AppCompatActivity {
                     imageView.setLayoutParams(new GridView.LayoutParams(55, 55));
                     imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     imageView.setPadding(8, 8, 8, 8);
-
                 } else {
                     imageView = (ImageView) convertView;
                 }
-
                 imageView.setImageResource(drawables[gameBoard[position] - 1]);
-                imageView.setClickable(false);
-                imageView.setEnabled(false);
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        System.out.println(imageView.getResources().toString());
 
+                    }
+                });
                 return imageView;
             }
         });
