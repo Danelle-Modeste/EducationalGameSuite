@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:numColumns="3"
+        android:numColumns="2"
         android:id="@+id/gridViewPanel"
         android:layout_below="@+id/sudokuGrid">
     </GridView>

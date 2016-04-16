@@ -2,6 +2,7 @@ package edu.uwi.sta.educationalgamesuite;
 
 import android.app.AlertDialog;
 import android.graphics.drawable.Drawable;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +22,7 @@ public class PlaySudokuActivity extends AppCompatActivity {
     private int[] drawables;
     private int difficulty;
     private int[] gameBoard;
-    public static int val;
+    public static int val=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +60,7 @@ public class PlaySudokuActivity extends AppCompatActivity {
                     imageView = new ImageView(getApplicationContext());
                     imageView.setLayoutParams(new GridView.LayoutParams(55, 55));
                     imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    imageView.setPadding(8, 8, 8, 8);
+                    imageView.setPadding(3,3,3,3);
 
                     editText = new EditText(getApplicationContext());
                     editText.bringToFront();
@@ -76,9 +77,7 @@ public class PlaySudokuActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             Log.d("CLICK","Click detected");
-                            //get input from user
-                            int input=getInput();
-                            setImage(input,imageView);
+                            setImage(imageView);
                         }
                     });
                 } else {
@@ -120,21 +119,28 @@ public class PlaySudokuActivity extends AppCompatActivity {
                 } else {
                     imageView = (ImageView) convertView;
                 }
+                imageView.setTag(position);
                 imageView.setImageResource(drawables[gameBoard[position] - 1]);
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        System.out.println(imageView.getResources().toString());
+                        getPosition(imageView);
 
                     }
                 });
+                imageView.setClickable(true);
                 return imageView;
             }
         });
     }
 
-    private void setImage(int x, ImageView imageView){
-        imageView.setImageResource(drawables[gameBoard[x] - 1]);
+    private void getPosition(ImageView imageView) {
+        Log.d("TAG CLICKED",imageView.getTag().toString());
+        PlaySudokuActivity.val=(Integer)imageView.getTag();
+    }
+
+    private void setImage(ImageView imageView){
+        imageView.setImageResource(drawables[gameBoard[val] - 1]);
     }
     private int getInput(){
         return 1;
