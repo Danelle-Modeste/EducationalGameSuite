@@ -22,6 +22,8 @@ public class PlaySudokuActivity extends AppCompatActivity {
     private int[] drawables;
     private int difficulty;
     private int[] gameBoard;
+    private Timer timer;
+    private String dif;
     public static int val=0;//STARTS WITH 1 HAS THE NUMBER FOR ENTRY
 
     @Override
@@ -29,14 +31,14 @@ public class PlaySudokuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_sudoku_acivity);
         sudoku = new Sudoku();
-
+        timer = new Timer();
         grid = (GridView)findViewById(R.id.sudokuGrid);
         setDrawables();
         difficulty = getIntent().getExtras().getInt("difficulty",1); //0 = easy, 1=med, 2=hard;
         gameBoard= sudoku.getConvertedBoard();
         setHeading();
         populateLinLayout();
-
+        updateTimer();
         grid.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
@@ -89,6 +91,31 @@ public class PlaySudokuActivity extends AppCompatActivity {
                 return imageView;
             }
         });
+    }
+
+    private void updateTimer() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (!Thread.interrupted()){
+                    runOnUiThread(new Runnable(){
+                        @Override
+                        public void run() {
+                            ((TextView)findViewById(R.id.idSudokuHeader)).setText("Sudoku - "+dif+"    "+timer.toString());
+
+                        }
+                    });
+                    try{
+                        Thread.sleep(500);
+                    }
+                    catch(InterruptedException e){
+                        Thread.currentThread().interrupt();
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+
     }
 
     private void populateLinLayout() {
@@ -145,8 +172,8 @@ public class PlaySudokuActivity extends AppCompatActivity {
     private int getInput(){
         return 1;
     }
+
     private void setHeading() {
-        String dif;
         switch (difficulty){
             case 0:
                 dif = "Easy";
@@ -157,7 +184,6 @@ public class PlaySudokuActivity extends AppCompatActivity {
             default:
                 dif="Hard";
         }
-        ((TextView)findViewById(R.id.idSudokuHeader)).setText("Sudoku -   "+dif);
     }
 
     private void setDrawables() {
