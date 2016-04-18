@@ -22,7 +22,8 @@ public class PlaySudokuActivity extends AppCompatActivity {
     private int[] drawables;
     private int difficulty;
     private int[] gameBoard;
-    public static int val=1;
+    public static int val=0;//STARTS WITH 1 HAS THE NUMBER FOR ENTRY
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,12 +121,11 @@ public class PlaySudokuActivity extends AppCompatActivity {
                     imageView = (ImageView) convertView;
                 }
                 imageView.setTag(position);
-                imageView.setImageResource(drawables[gameBoard[position] - 1]);
+                imageView.setImageResource(drawables[position]);
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         getPosition(imageView);
-
                     }
                 });
                 imageView.setClickable(true);
@@ -140,7 +140,7 @@ public class PlaySudokuActivity extends AppCompatActivity {
     }
 
     private void setImage(ImageView imageView){
-        imageView.setImageResource(drawables[gameBoard[val] - 1]);
+        imageView.setImageResource(drawables[PlaySudokuActivity.val]);
     }
     private int getInput(){
         return 1;
@@ -167,6 +167,4 @@ public class PlaySudokuActivity extends AppCompatActivity {
                                 R.drawable.five_wrong,R.drawable.six_wrong,R.drawable.seven_wrong,R.drawable.eight_wrong,
                                 R.drawable.nine_wrong};
     }
-
-
 }
