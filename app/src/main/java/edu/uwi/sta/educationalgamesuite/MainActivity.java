@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     AuthData authData ;
     Map<String,Object> user;
     public static int[] gameIcons={R.drawable.sudoku,R.drawable.another_game,R.drawable.another_game};
-    public static String[] gameStrings = {"Sudoku","Game 2","Game 3"};
+    public static String[] gameStrings = {"Sudoku","Trivia","Word Mole"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
