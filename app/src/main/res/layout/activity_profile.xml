@@ -25,8 +25,7 @@
         android:text="Achievements &amp; Statistics"
         android:id="@+id/textView"
         android:layout_below="@+id/idProfileHeader"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="42dp" />
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:layout_width="100dp"
@@ -105,8 +104,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Game Performance"
         android:id="@+id/textView8"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="62dp" />
 
     <TextView
         android:layout_width="wrap_content"

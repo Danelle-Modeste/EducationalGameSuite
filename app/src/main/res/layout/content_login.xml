@@ -47,7 +47,7 @@
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="match_parent"
+        android:layout_width="125dp"
         android:layout_height="40dp"
         android:background="@drawable/btn_design2"
         android:gravity="center"
@@ -56,9 +56,9 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="normal"
+        android:layout_marginTop="41dp"
         android:layout_below="@+id/txt_pword"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="39dp" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/btn_reset"
@@ -76,7 +76,7 @@
 
     <Button
         android:id="@+id/btn_register"
-        android:layout_width="match_parent"
+        android:layout_width="125dp"
         android:layout_height="40dp"
         android:background="@drawable/btn_design2"
         android:gravity="center"
@@ -85,8 +85,8 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="normal"
-        android:layout_below="@+id/btn_reset"
-        android:layout_marginTop="28dp"/>
+        android:layout_above="@+id/btn_reset"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
