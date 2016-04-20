@@ -1,14 +1,17 @@
 <resources>
-    <string name="app_name">EducationalGameSuite</string>
+    <string name="app_name">Educational Game Suite</string>
     <string name="action_settings">Settings</string>
     <string name="register">REGISTER</string>
     <string name="login">LOGIN</string>
     <string name="txt_email_address">Email Address</string>
     <string name="txt_password">Password</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_register">RegisterActivity</string>
-    <string name="title_activity_sudoku_main">SudokuMain</string>
+    <string name="title_activity_main">Educational Game Suite</string>
+    <string name="title_activity_register">Register</string>
+    <string name="title_activity_sudoku_main">Welcome To Sudoku</string>
     <string name="title_activity_high_scores">HighScores</string>
     <string name="title_activity_instructions">Instructions</string>
+    <string name="title_activity_profile">User Profile</string>
+    <string name="title_activity_sudoku_play">Sudoku</string>
     <string name="sudokuInstructions"> Each puzzle consists of a 9x9 grid containing given clues in various places. The object is to fill all empty squares so that the numbers 1 to 9 appear exactly once in each row, column and 3x3 box.</string>
+    <string name="title_content_action_bar__menu">Action Bar</string>
 </resources>

@@ -5,7 +5,10 @@ import android.graphics.drawable.Drawable;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -14,6 +17,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PlaySudokuActivity extends AppCompatActivity {
     protected Sudoku sudoku;
@@ -30,6 +34,7 @@ public class PlaySudokuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_sudoku_acivity);
+
         sudoku = new Sudoku();
         timer = new Timer();
         grid = (GridView)findViewById(R.id.sudokuGrid);
@@ -39,6 +44,7 @@ public class PlaySudokuActivity extends AppCompatActivity {
         setHeading();
         populateLinLayout();
         updateTimer();
+
         grid.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
@@ -192,5 +198,35 @@ public class PlaySudokuActivity extends AppCompatActivity {
                                 R.drawable.one_wrong,R.drawable.two_wrong,R.drawable.three_wrong,R.drawable.four_wrong,
                                 R.drawable.five_wrong,R.drawable.six_wrong,R.drawable.seven_wrong,R.drawable.eight_wrong,
                                 R.drawable.nine_wrong};
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_login, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.resetSudoku) {
+            Toast.makeText(this,"Reset Sudoku Clicked",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if (id == R.id.checkSudoku) {
+            Toast.makeText(this,"Check Sudoku Clicked",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if (id == R.id.submitSudoku) {
+            Toast.makeText(this,"Submit Sudoku Clicked",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

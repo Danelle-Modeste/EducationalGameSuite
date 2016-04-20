@@ -16,9 +16,6 @@ import android.widget.Toast;
 
 import java.awt.font.TextAttribute;
 
-/**
- * Created by kwasi on 4/3/2016.
- */
 public class CustomAdapter extends BaseAdapter{
     String [] result;
     Context context;
@@ -60,15 +57,6 @@ public class CustomAdapter extends BaseAdapter{
                 switch (position){
                     case 0:
                         Log.d("ITEM CLICKED", "Play sudoku");
-                        /*new AlertDialog.Builder(context)
-                                .setTitle("Select Difficulty")
-                                .setItems(new String[]{"Easy", "Medium", "Hard"}, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        context.startActivity(new Intent(context,PlaySudokuActivity.class).putExtra("difficulty",which));
-                                    }
-                                }).show();
-                        */
                         context.startActivity(new Intent(context,SudokuMain.class));
                         break;
                     default:

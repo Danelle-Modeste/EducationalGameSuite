@@ -10,9 +10,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name"
+            android:label="@string/login"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,24 +21,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ActionBar_Menu"
+            android:label="@string/title_content_action_bar__menu"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".RegisterActivity"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".PlaySudokuActivity" />
+
+        <activity android:name=".ProfileActivity"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".PlaySudokuActivity"
+            android:label="@string/title_activity_sudoku_play"/>
+
         <activity
             android:name=".SudokuMain"
             android:label="@string/title_activity_sudoku_main"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".HighScores"
             android:label="@string/title_activity_high_scores"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".Instructions"
             android:label="@string/title_activity_instructions"

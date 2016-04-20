@@ -1,7 +1,5 @@
 package edu.uwi.sta.educationalgamesuite;
 
-import android.util.Log;
-
 public class Sudoku {
     private int[][] board;
     private int[]solutions;
