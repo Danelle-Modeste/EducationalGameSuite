@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Instructions"
-        android:id="@+id/textView11"
+        android:id="@+id/textView1"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp" />
@@ -27,9 +27,140 @@
         android:layout_height="wrap_content"
         android:text="@string/sudokuInstructions"
         android:id="@+id/txt_instr"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:textAlignment="gravity"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true" />
 
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:layout_marginTop="49dp"
+        android:layout_below="@+id/txt_instr"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/imageView7"
+            android:src="@drawable/reset" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Reset Sudoku Puzzle"
+            android:id="@+id/textView13"
+            android:textSize="20dp"
+            android:textAlignment="center" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/imageView8"
+            android:src="@drawable/check" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Check Current Sudoku"
+            android:id="@+id/textView14"
+            android:textSize="20dp"
+            android:textAlignment="center" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/imageView9"
+            android:src="@drawable/submit" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Submit Sudoku"
+            android:id="@+id/textView15"
+            android:textSize="20dp"
+            android:textAlignment="center" />
+    </GridLayout>
+
+    <!--
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_instr"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:id="@+id/linearLayout">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/imageView4"
+                android:src="@drawable/reset" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Reset"
+                android:id="@+id/textView10"
+                android:textSize="20dp"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/imageView5"
+                android:src="@drawable/check" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Check"
+                android:id="@+id/textView11"
+                android:textSize="20dp"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/imageView6"
+                android:src="@drawable/submit" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Submit"
+                android:id="@+id/textView12"
+                android:textSize="20dp"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </LinearLayout>
+-->
 </RelativeLayout>
