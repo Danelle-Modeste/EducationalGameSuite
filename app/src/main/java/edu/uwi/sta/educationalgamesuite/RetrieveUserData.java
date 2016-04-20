@@ -7,9 +7,6 @@ import com.firebase.client.FirebaseError;
 
 import java.util.Map;
 
-/**
- * Created by DANELLE on 30/03/2016.
- */
 public class RetrieveUserData implements ChildEventListener {
     AuthData authData ;
     Map<String,Object> user;

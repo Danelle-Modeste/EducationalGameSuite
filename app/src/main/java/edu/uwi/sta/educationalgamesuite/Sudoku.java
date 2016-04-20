@@ -2,9 +2,6 @@ package edu.uwi.sta.educationalgamesuite;
 
 import android.util.Log;
 
-/**
- * Created by kwasi on 4/3/2016.
- */
 public class Sudoku {
     private int[][] board;
     private int[]solutions;

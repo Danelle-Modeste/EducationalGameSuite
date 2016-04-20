@@ -7,4 +7,8 @@
     <string name="txt_password">Password</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_sudoku_main">SudokuMain</string>
+    <string name="title_activity_high_scores">HighScores</string>
+    <string name="title_activity_instructions">Instructions</string>
+    <string name="sudokuInstructions"> Each puzzle consists of a 9x9 grid containing given clues in various places. The object is to fill all empty squares so that the numbers 1 to 9 appear exactly once in each row, column and 3x3 box.</string>
 </resources>

@@ -29,7 +29,19 @@
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".PlaySudokuActivity"></activity>
+        <activity android:name=".PlaySudokuActivity" />
+        <activity
+            android:name=".SudokuMain"
+            android:label="@string/title_activity_sudoku_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".HighScores"
+            android:label="@string/title_activity_high_scores"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Instructions"
+            android:label="@string/title_activity_instructions"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
