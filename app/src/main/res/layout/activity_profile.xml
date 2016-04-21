@@ -138,6 +138,7 @@
         android:id="@+id/button2"
         android:layout_alignTop="@+id/button"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/textView8" />
+        android:layout_toEndOf="@+id/textView8"
+        android:onClick="logOut" />
 
 </RelativeLayout>

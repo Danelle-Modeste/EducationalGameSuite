@@ -44,7 +44,35 @@ public class PlaySudokuActivity extends AppCompatActivity {
         setHeading();
         populateLinLayout();
         updateTimer();
+        setAdapter();
+    }
 
+    private void updateTimer() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (!Thread.interrupted()){
+                    runOnUiThread(new Runnable(){
+                        @Override
+                        public void run() {
+                            ((TextView)findViewById(R.id.idSudokuHeader)).setText("Sudoku - "+dif+"    "+timer.toString());
+
+                        }
+                    });
+                    try{
+                        Thread.sleep(500);
+                    }
+                    catch(InterruptedException e){
+                        Thread.currentThread().interrupt();
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+
+    }
+
+    public void setAdapter(){
         grid.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
@@ -97,31 +125,6 @@ public class PlaySudokuActivity extends AppCompatActivity {
                 return imageView;
             }
         });
-    }
-
-    private void updateTimer() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (!Thread.interrupted()){
-                    runOnUiThread(new Runnable(){
-                        @Override
-                        public void run() {
-                            ((TextView)findViewById(R.id.idSudokuHeader)).setText("Sudoku - "+dif+"    "+timer.toString());
-
-                        }
-                    });
-                    try{
-                        Thread.sleep(500);
-                    }
-                    catch(InterruptedException e){
-                        Thread.currentThread().interrupt();
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }).start();
-
     }
 
     private void populateLinLayout() {
@@ -198,7 +201,7 @@ public class PlaySudokuActivity extends AppCompatActivity {
                                 R.drawable.six,R.drawable.seven, R.drawable.eight, R.drawable.nine, R.drawable.blank,
                                 R.drawable.one_wrong,R.drawable.two_wrong,R.drawable.three_wrong,R.drawable.four_wrong,
                                 R.drawable.five_wrong,R.drawable.six_wrong,R.drawable.seven_wrong,R.drawable.eight_wrong,
-                                R.drawable.nine_wrong};
+                                R.drawable.nine_wrong,R.drawable.blank_wrong};
     }
 
     @Override
@@ -218,6 +221,15 @@ public class PlaySudokuActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.resetSudoku) {
             Toast.makeText(this,"Reset Sudoku Clicked",Toast.LENGTH_SHORT).show();
+            timer = new Timer();
+            GridView gv = (GridView)findViewById(R.id.sudokuGrid);
+            for (int a=0;a<gv.getChildCount();a++){
+                ImageView iv = (ImageView)gv.getChildAt(a);
+                if (iv.getTag()!=null){
+                    iv.setImageResource(drawables[9]);
+                    iv.setTag(null);
+                }
+            }
             return true;
         }
         if (id == R.id.checkSudoku) {
