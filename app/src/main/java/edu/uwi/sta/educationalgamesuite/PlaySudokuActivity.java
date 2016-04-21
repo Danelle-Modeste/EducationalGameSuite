@@ -2,6 +2,7 @@ package edu.uwi.sta.educationalgamesuite;
 
 import android.app.AlertDialog;
 import android.graphics.drawable.Drawable;
+import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,13 +29,14 @@ public class PlaySudokuActivity extends AppCompatActivity {
     private int[] gameBoard;
     private Timer timer;
     private String dif;
+    private int numBlank;
     public static int val=0;//STARTS WITH 1 HAS THE NUMBER FOR ENTRY
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_sudoku_acivity);
-
+        numBlank=0;
         sudoku = new Sudoku();
         timer = new Timer();
         grid = (GridView)findViewById(R.id.sudokuGrid);
@@ -92,29 +94,26 @@ public class PlaySudokuActivity extends AppCompatActivity {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 final ImageView imageView;
-                EditText editText;
                 if (convertView == null) {
                     imageView = new ImageView(getApplicationContext());
                     imageView.setLayoutParams(new GridView.LayoutParams(55, 55));
                     imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     imageView.setPadding(3,3,3,3);
 
-                    editText = new EditText(getApplicationContext());
-                    editText.bringToFront();
                 } else {
                     imageView = (ImageView) convertView;
-                    editText = new EditText(getApplicationContext());
-                    editText.bringToFront();
                 }
                 int y = Math.abs((int) System.currentTimeMillis());
                 Log.d(y + "", y % 4 + "");
                 if (y % 4 <= difficulty) {
                     imageView.setImageResource(drawables[9]);//blank tile
+                    imageView.setTag(99);
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Log.d("CLICK","Click detected");
                             setImage(imageView);
+
                         }
                     });
                 } else {
@@ -176,8 +175,12 @@ public class PlaySudokuActivity extends AppCompatActivity {
     }
 
     private void setImage(ImageView imageView){
+        if (imageView.getTag()==null){
+
+        }
         imageView.setImageResource(drawables[PlaySudokuActivity.val]);
         imageView.setTag(val+1);
+
     }
     private int getInput(){
         return 1;
@@ -246,44 +249,47 @@ public class PlaySudokuActivity extends AppCompatActivity {
     }
 
     private void submitSudoku() {
-        GridView gv  = (GridView)findViewById(R.id.sudokuGrid);
-        boolean complete = true;
-        for (int a=0;a<gv.getChildCount();a++){
-            ImageView iv = (ImageView)gv.getChildAt(a);
+        GridView gv = (GridView)findViewById(R.id.sudokuGrid);
+        boolean doCheck = true;
+        for (int a=0;a<gv.getChildCount();a++) {
+            ImageView iv = (ImageView) gv.getChildAt(a);
             if (iv.getTag()!=null){
-                if ((int)iv.getTag()!=gameBoard[a]){
-                    complete=false;
+                if ((int)iv.getTag() == 99){
+                    new AlertDialog.Builder(this)
+                            .setTitle("BLANK")
+                            .setMessage("Fill in all the blanks")
+                            .show();
+                    doCheck=false;
                     break;
                 }
             }
+
         }
-        if (!complete){
-            new AlertDialog.Builder(this)
-                    .setTitle("Incomplete Sudoku")
-                    .setMessage("Sudoku is incomplete, would you like to save?")
-                    .setPositiveButton("YES",null)
-                    .setNegativeButton("NO",null)
-                    .show();
+        if (doCheck){
+            if (checkSudoku()){
+                new AlertDialog.Builder(this)
+                        .setMessage("Congratulatinos, you won")
+                        .setTitle("Congrats")
+                        .show();
+            }
         }
-        else{
-            new AlertDialog.Builder(this)
-                    .setTitle("Congratulations")
-                    .setMessage("Congratulations, you've completed the game")
-                    .show();
-        }
+
     }
 
-    private void checkSudoku() {
+    private boolean checkSudoku() {
         GridView gv = (GridView)findViewById(R.id.sudokuGrid);
+        boolean x = true;
         for (int a=0;a<gv.getChildCount();a++){
             ImageView iv = (ImageView)gv.getChildAt(a);
             if (iv.getTag()!=null){
                 if ((int)iv.getTag()!=gameBoard[a]){
                     if ((int)iv.getTag()<10){
                         iv.setImageResource(drawables[(int)iv.getTag()+9]);
+                        x=false;
                     }
                 }
             }
         }
+        return x;
     }
 }
