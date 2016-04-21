@@ -226,10 +226,39 @@ public class PlaySudokuActivity extends AppCompatActivity {
             return true;
         }
         if (id == R.id.submitSudoku) {
-            Toast.makeText(this,"Submit Sudoku Clicked",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this,"Submit Sudoku Clicked",Toast.LENGTH_SHORT).show();
+            submitSudoku();
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void submitSudoku() {
+        GridView gv  = (GridView)findViewById(R.id.sudokuGrid);
+        boolean complete = true;
+        for (int a=0;a<gv.getChildCount();a++){
+            ImageView iv = (ImageView)gv.getChildAt(a);
+            if (iv.getTag()!=null){
+                if ((int)iv.getTag()!=gameBoard[a]){
+                    complete=false;
+                    break;
+                }
+            }
+        }
+        if (!complete){
+            new AlertDialog.Builder(this)
+                    .setTitle("Incomplete Sudoku")
+                    .setMessage("Sudoku is incomplete, would you like to save?")
+                    .setPositiveButton("YES",null)
+                    .setNegativeButton("NO",null)
+                    .show();
+        }
+        else{
+            new AlertDialog.Builder(this)
+                    .setTitle("Congratulations")
+                    .setMessage("Congratulations, you've completed the game")
+                    .show();
+        }
     }
 
     private void checkSudoku() {
@@ -244,6 +273,5 @@ public class PlaySudokuActivity extends AppCompatActivity {
                 }
             }
         }
-
     }
 }
