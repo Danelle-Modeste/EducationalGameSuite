@@ -174,6 +174,7 @@ public class PlaySudokuActivity extends AppCompatActivity {
 
     private void setImage(ImageView imageView){
         imageView.setImageResource(drawables[PlaySudokuActivity.val]);
+        imageView.setTag(val+1);
     }
     private int getInput(){
         return 1;
@@ -220,7 +221,8 @@ public class PlaySudokuActivity extends AppCompatActivity {
             return true;
         }
         if (id == R.id.checkSudoku) {
-            Toast.makeText(this,"Check Sudoku Clicked",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this,"Check Sudoku Clicked",Toast.LENGTH_SHORT).show();
+            checkSudoku();
             return true;
         }
         if (id == R.id.submitSudoku) {
@@ -228,5 +230,20 @@ public class PlaySudokuActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void checkSudoku() {
+        GridView gv = (GridView)findViewById(R.id.sudokuGrid);
+        for (int a=0;a<gv.getChildCount();a++){
+            ImageView iv = (ImageView)gv.getChildAt(a);
+            if (iv.getTag()!=null){
+                if ((int)iv.getTag()!=gameBoard[a]){
+                    if ((int)iv.getTag()<10){
+                        iv.setImageResource(drawables[(int)iv.getTag()+9]);
+                    }
+                }
+            }
+        }
+
     }
 }
