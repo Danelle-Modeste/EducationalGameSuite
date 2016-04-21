@@ -1,6 +1,7 @@
 package edu.uwi.sta.educationalgamesuite;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
@@ -220,20 +221,34 @@ public class PlaySudokuActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.resetSudoku) {
-            Toast.makeText(this,"Reset Sudoku Clicked",Toast.LENGTH_SHORT).show();
-            timer = new Timer();
-            GridView gv = (GridView)findViewById(R.id.sudokuGrid);
-            for (int a=0;a<gv.getChildCount();a++){
-                ImageView iv = (ImageView)gv.getChildAt(a);
-                if (iv.getTag()!=null){
-                    iv.setImageResource(drawables[9]);
-                    iv.setTag(null);
+
+            AlertDialog.Builder confirm = new AlertDialog.Builder(this);
+            confirm.setMessage("Would you like to reset your progress with this puzzle");
+            confirm.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    timer = new Timer();
+                    GridView gv = (GridView)findViewById(R.id.sudokuGrid);
+                    for (int a=0;a<gv.getChildCount();a++){
+                        ImageView iv = (ImageView)gv.getChildAt(a);
+                        if (iv.getTag()!=null){
+                            iv.setImageResource(drawables[9]);
+                            iv.setTag(null);
+                        }
+                    }
                 }
-            }
+            });
+            confirm.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            confirm.show();
+
             return true;
         }
+
         if (id == R.id.checkSudoku) {
-            //Toast.makeText(this,"Check Sudoku Clicked",Toast.LENGTH_SHORT).show();
             checkSudoku();
             return true;
         }
