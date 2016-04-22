@@ -265,7 +265,7 @@ public class PlaySudokuActivity extends AppCompatActivity {
 
     private void submitSudoku() {
         GridView gv = (GridView)findViewById(R.id.sudokuGrid);
-        boolean doCheck = true;
+        boolean doCheck = true,filled=false;
         for (int a=0;a<gv.getChildCount();a++) {
             ImageView iv = (ImageView) gv.getChildAt(a);
             if (iv.getTag()!=null){
@@ -277,14 +277,26 @@ public class PlaySudokuActivity extends AppCompatActivity {
                     doCheck=false;
                     break;
                 }
+                else{
+                    filled=true;
+                }
             }
-
         }
         if (doCheck){
-            if (checkSudoku()){
+            if (filled){
+                if (checkSudoku()){
+                    new AlertDialog.Builder(this)
+                            .setMessage("Congratulations, you won")
+                            .setTitle("Congrats")
+                            .show();
+                }
+            }
+            else{
                 new AlertDialog.Builder(this)
-                        .setMessage("Congratulatinos, you won")
-                        .setTitle("Congrats")
+                        .setTitle("Save Game?")
+                        .setMessage("Would you like to save and exit game?")
+                        .setPositiveButton("YES",null)
+                        .setNegativeButton("NO",null)
                         .show();
             }
         }
