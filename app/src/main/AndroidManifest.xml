@@ -43,6 +43,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name=".PlaySudokuActivity"
+            android:theme="@style/SudokuTheme"
             android:label="@string/title_activity_sudoku_play"/>
 
         <activity

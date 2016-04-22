@@ -19,17 +19,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="WELCOME"
         android:id="@+id/txt_welc"
+        android:textAlignment="center"
         android:layout_below="@+id/imgBtnProfile"
         android:layout_alignEnd="@+id/imgBtnProfile"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Dashboard"
-        android:id="@+id/tvDashboard"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:layout_width="75dp"
@@ -38,15 +31,26 @@
         android:src="@drawable/profile_pic"
         android:scaleType="fitXY"
         android:background="@android:color/transparent"
-        android:layout_below="@+id/tvDashboard"
         android:layout_alignParentEnd="true" />
 
-    <ListView
+    <!--<ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lvGameList"
         android:layout_below="@+id/txt_welc"
         android:layout_alignEnd="@+id/imgBtnProfile"
-        android:headerDividersEnabled="false" />
-
+        android:headerDividersEnabled="false"
+        android:layout_marginTop="40dp"/>
+-->
+<GridView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/lvGameList"
+    android:layout_below="@+id/txt_welc"
+    android:layout_alignEnd="@+id/imgBtnProfile"
+    android:headerDividersEnabled="false"
+    android:layout_marginTop="40dp"
+    android:numColumns="3"
+    android:verticalSpacing="5dp"
+    android:horizontalSpacing="8dp"/>
 </RelativeLayout>

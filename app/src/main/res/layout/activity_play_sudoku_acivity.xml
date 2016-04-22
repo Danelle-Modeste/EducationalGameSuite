@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".PlaySudokuActivity">
+    tools:context=".PlaySudokuActivity"
+    android:background="@drawable/board">
 
     <TextView
         android:layout_width="wrap_content"
@@ -16,7 +17,8 @@
         android:text="Sudoku"
         android:id="@+id/idSudokuHeader"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="30dp"/>
 
     <GridView
         android:layout_width="match_parent"

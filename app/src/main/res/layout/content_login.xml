@@ -14,9 +14,8 @@
 
     <EditText
         android:id="@+id/txt_email"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:background="@drawable/textboxdesign"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/txt_email_address"
@@ -25,13 +24,12 @@
         android:textColorHint="#000000"
         android:layout_marginTop="54dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true"/>
 
     <EditText
         android:id="@+id/txt_pword"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:background="@drawable/textboxdesign"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/txt_password"
@@ -40,8 +38,7 @@
         android:textColorHint="#000000"
         android:layout_marginTop="31dp"
         android:layout_below="@+id/txt_email"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true"/>
 
 <!-- To change button colour edit color in btn_design2 or delete and create new regular button or new button style -->
 
@@ -56,37 +53,45 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="normal"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="42dp"
         android:layout_below="@+id/txt_pword"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignEnd="@+id/txt_pword"
+        android:layout_alignStart="@+id/txt_pword" />
 
-    <Button
-        android:id="@+id/btn_reset"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/btn_design2"
-        android:gravity="center"
-        android:onClick="passwordReset"
-        android:text="RESET PASSWORD"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        android:layout_marginTop="34dp"
-        android:layout_below="@+id/btn_login"/>
 
-    <Button
-        android:id="@+id/btn_register"
-        android:layout_width="125dp"
-        android:layout_height="40dp"
-        android:background="@drawable/btn_design2"
-        android:gravity="center"
-        android:onClick="register"
-        android:text="@string/register"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        android:layout_above="@+id/btn_reset"
-        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_login"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/btn_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:onClick="passwordReset"
+            android:text="Forgot Password?"
+            android:textColor="#00868B"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            android:layout_marginEnd="15dp"/>
+
+        <TextView
+            android:id="@+id/btn_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:onClick="register"
+            android:text="@string/register"
+            android:textColor="#00868B"
+            android:textSize="15sp"
+            android:textStyle="normal"/>
+
+    </LinearLayout>
 
 
 </RelativeLayout>

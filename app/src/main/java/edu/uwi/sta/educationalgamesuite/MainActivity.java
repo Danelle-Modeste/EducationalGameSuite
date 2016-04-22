@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
     Firebase firebaseRef,userRef;
     AuthData authData ;
     Map<String,Object> user;
-    public static int[] gameIcons={R.drawable.sudoku,R.drawable.another_game,R.drawable.another_game};
-    public static String[] gameStrings = {"Sudoku","Trivia","Word Mole"};
+    public static int[] gameIcons={R.drawable.sudoku,R.drawable.another_game,R.drawable.another_game,R.drawable.another_game,R.drawable.another_game,R.drawable.another_game};
+    public static String[] gameStrings = {"Sudoku","Trivia","Word Mole","Thinkers","Mathopia", "Brainiacs"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +85,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //get the textview and assign the custom adapter
-        ((ListView) findViewById(R.id.lvGameList)).setAdapter(new CustomAdapter(this,gameStrings,gameIcons));
+        //((ListView) findViewById(R.id.lvGameList)).setAdapter(new CustomAdapter(this,gameStrings,gameIcons));
+
+        ((GridView) findViewById(R.id.lvGameList)).setAdapter(new CustomAdapter(this,gameStrings,gameIcons));
     }
+
+
 }
