@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.GridView;
-import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.firebase.client.AuthData;
